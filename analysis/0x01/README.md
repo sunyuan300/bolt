@@ -162,17 +162,17 @@ type node struct {
 	inodes     inodes
 }
 ```
-|        字段        | 描述                      |
-|:----------------:|-------------------------|
-|  bucket *Bucket  | 该node所属的bucket          |
-|   isLeaf bool    | 该node是否为叶子节点            |
-| unbalanced bool  | 该node是否不平衡              |
-|   spilled bool   | 该node是否被调整过             |
-|    key []byte    | 保存node初始化时的第一个key       |
-|    pgid pgid     | 该node在mmap内存(文件)中相应的页id |
-|   parent *node   |该node的父节点|
-|  children nodes  |保存已实例化(堆内存化)的孩子节点，用于spill时递归向下更新node|
-|  inodes inodes   |该node的内部节点(branchPageElement/leafPageElement)
+|        字段        | 描述                                                 |
+|:----------------:|----------------------------------------------------|
+|  bucket *Bucket  | 该node所属的bucket                                     |
+|   isLeaf bool    | 该node是否为叶子节点                                       |
+| unbalanced bool  | 该node是否不平衡                                         |
+|   spilled bool   | 该node是否被调整过                                        |
+|    key []byte    | 保存node初始化时的第一个key                                  |
+|    pgid pgid     | 该node在mmap内存(文件)中相应的页id                            |
+|   parent *node   | 该node的父节点                                          |
+|  children nodes  | 保存已实例化(堆内存化)的孩子节点，用于spill时递归向下更新node               |
+|  inodes inodes   | 该node的内部节点(branchPage/leafPage的构成元素) |
 ```go
 // branchPageElement represents a node on a branch page.
 type branchPageElement struct {
